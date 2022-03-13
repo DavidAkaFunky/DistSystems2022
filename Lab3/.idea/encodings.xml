@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/example_grpc/client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/example_grpc/client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/example_grpc/contract/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/example_grpc/contract/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/example_grpc/server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/example_grpc/server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/example_ttt/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/example_ttt/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exercise_ttt-grpc/client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exercise_ttt-grpc/client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exercise_ttt-grpc/contract/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exercise_ttt-grpc/contract/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exercise_ttt-grpc/server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exercise_ttt-grpc/server/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

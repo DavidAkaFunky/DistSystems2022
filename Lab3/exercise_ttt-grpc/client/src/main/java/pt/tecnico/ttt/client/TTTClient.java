@@ -99,7 +99,12 @@ public class TTTClient {
 					debug("row = " + row + ", column = " + column);
 
 					// TODO call play and set the proper play result
-					play_res = PlayResult.UNKNOWN;
+					PlayRequest playRequest = PlayRequest.getDefaultInstance()
+														 .setRow(row)
+														 .setColumn(column)
+														 .setPlayer(player);
+					play_res = stub.play(playRequest).getResult();
+
 					if (play_res != PlayResult.SUCCESS) {
 						displayResult(play_res);
 					}
@@ -107,6 +112,8 @@ public class TTTClient {
 				} while (play_res != PlayResult.SUCCESS);
 
 				// TODO call check winner and set the winning player.
+
+				winner = stub.checkWinner(CheckWinnerRequest.getDefaultInstance()).getResult();
 
 				/* Select next player. */
 				player = (player + 1) % 2;

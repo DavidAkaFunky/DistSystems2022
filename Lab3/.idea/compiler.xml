@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hello-grpc-server" />
+        <module name="ttt-grpc-server" />
+        <module name="ttt-grpc-contract" />
+        <module name="hello-grpc-contract" />
+        <module name="hello-grpc-client" />
+        <module name="ttt-grpc-client" />
+        <module name="ttt-local" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hello-grpc" target="1.5" />
+      <module name="hello-grpc-client" target="11" />
+      <module name="hello-grpc-contract" target="11" />
+      <module name="hello-grpc-server" target="11" />
+      <module name="ttt-grpc" target="1.5" />
+      <module name="ttt-grpc-client" target="11" />
+      <module name="ttt-grpc-contract" target="11" />
+      <module name="ttt-grpc-server" target="11" />
+      <module name="ttt-local" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
