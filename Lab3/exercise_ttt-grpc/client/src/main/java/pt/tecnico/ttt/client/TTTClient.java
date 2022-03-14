@@ -90,6 +90,13 @@ public class TTTClient {
 					if (go == 0) {
 						play_res = PlayResult.UNKNOWN;
 						continue;
+					} else if (go == 10) {
+						player = 0;
+						ResetBoardRequest resetBoardRequest = ResetBoardRequest.getDefaultInstance();
+						stub.resetBoard(resetBoardRequest);
+						// CALL SERVER TO CLEAR BOARD
+						play_res = PlayResult.UNKNOWN;
+						continue;
 					}
 
 					/* Get row index of board. */
@@ -99,10 +106,12 @@ public class TTTClient {
 					debug("row = " + row + ", column = " + column);
 
 					// TODO call play and set the proper play result
-					PlayRequest playRequest = PlayRequest.getDefaultInstance()
+					PlayRequest playRequest = PlayRequest.newBuilder()
 														 .setRow(row)
 														 .setColumn(column)
-														 .setPlayer(player);
+														 .setPlayer(player)
+														 .build();
+
 					play_res = stub.play(playRequest).getResult();
 
 					if (play_res != PlayResult.SUCCESS) {
@@ -113,7 +122,7 @@ public class TTTClient {
 
 				// TODO call check winner and set the winning player.
 
-				winner = stub.checkWinner(CheckWinnerRequest.getDefaultInstance()).getResult();
+				winner = stub.checkWinner(CheckWinnerRequest.getDefaultInstance()).getGameStatus();
 
 				/* Select next player. */
 				player = (player + 1) % 2;

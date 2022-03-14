@@ -33,11 +33,23 @@ public class TTTServiceImpl extends TTTGrpc.TTTImplBase {
 		responseObserver.onCompleted();
 	}
 
-
 	@Override
 	public void checkWinner(CheckWinnerRequest request, StreamObserver<CheckWinnerResponse> responseObserver) {
 
 		CheckWinnerResponse response = CheckWinnerResponse.newBuilder().setGameStatus(ttt.checkWinner()).build();
+
+		// Send a single response through the stream.
+		responseObserver.onNext(response);
+		// Notify the client that the operation has been completed.
+		responseObserver.onCompleted();
+
+	}
+
+	@Override
+	public void resetBoard(ResetBoardRequest request, StreamObserver<ResetBoardResponse> responseObserver) {
+
+		ttt.resetBoard();
+		ResetBoardResponse response = ResetBoardResponse.newBuilder().build();
 
 		// Send a single response through the stream.
 		responseObserver.onNext(response);

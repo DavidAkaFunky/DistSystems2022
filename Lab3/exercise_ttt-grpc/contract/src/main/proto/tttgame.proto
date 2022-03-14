@@ -48,10 +48,21 @@ message CheckWinnerResponse {
 	int32 gameStatus = 1;
 }
 
+// reset board operation
+
+message ResetBoardRequest {
+	// No arguments for this request.
+}
+
+message ResetBoardResponse {
+	// No arguments for this response.
+}
+
 // service
 
 service TTT {
 	rpc CurrentBoard(CurrentBoardRequest) returns (CurrentBoardResponse);
 	rpc Play(PlayRequest) returns (PlayResponse);
 	rpc CheckWinner(CheckWinnerRequest) returns (CheckWinnerResponse);
+	rpc ResetBoard(ResetBoardRequest) returns (ResetBoardResponse);
 }
