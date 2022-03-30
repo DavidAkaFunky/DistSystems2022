@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package pt.tecnico.addressbook.grpc;
+
+option java_multiple_files = true;
+option java_package = "pt.tecnico.addressbook.grpc";
+option java_outer_classname = "AddressBookProtobuf";
+
+
+message PersonInfo {
+  string name = 1;
+  string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+    int32 number = 1;
+    PhoneType type = 2;
+  }
+
+  PhoneNumber phone = 4;
+}
+
+message AddressBookList {
+  repeated PersonInfo people = 1;
+}
+
+message ListPeopleRequest {
+
+}
+
+message SearchPersonRequest {
+  string email = 1;
+}
+
+message AddPersonResponse {
+}
+
+message DeletePersonRequest{
+  string email = 1;
+}
+
+message DeletePersonResponse{
+
+}
+
+service AddressBookService {
+  rpc listPeople(ListPeopleRequest) returns(AddressBookList);
+  rpc addPerson(PersonInfo) returns (AddPersonResponse);
+  rpc searchPerson(SearchPersonRequest) returns (PersonInfo);
+  rpc deletePerson(DeletePersonRequest) returns (DeletePersonResponse);
+}
