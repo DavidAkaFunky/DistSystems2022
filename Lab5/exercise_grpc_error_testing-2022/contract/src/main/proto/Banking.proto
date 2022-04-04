@@ -1,0 +1,42 @@
+syntax = "proto3";
+package pt.tecnico.grpc;
+
+message RegisterRequest {
+	string client = 1;
+	uint32 balance = 2;
+}
+
+message RegisterResponse {
+}
+
+message ConsultRequest {
+	string client = 1;
+}
+
+message ConsultResponse {
+	int32 balance = 1;
+}
+
+message SubsidizeRequest {
+	int32 threshold = 1;
+	int32 amount = 2;
+}
+
+message SubsidizeResponse{
+
+}
+
+message TerminateRequest{
+	string client = 1;
+}
+
+message TerminateResponse{
+
+}
+
+service BankingService {
+	rpc register(RegisterRequest) returns (RegisterResponse);
+	rpc consult(ConsultRequest) returns (ConsultResponse);
+	rpc subsidize(SubsidizeRequest) returns (SubsidizeResponse);
+	rpc terminate(TerminateRequest) returns (TerminateResponse);
+}
