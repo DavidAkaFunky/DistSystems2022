@@ -1,0 +1,30 @@
+syntax = "proto3";
+package pt.ulisboa.tecnico.classes.contract.classserver;
+
+import "ClassesDefinitions.proto";
+
+// ClassServer -> ClassServer Service
+
+message StartGossipRequest{
+  int32 vectorClockEntry = 1;
+}
+
+message StartGossipResponse{
+  repeated Command commands = 1;
+  ResponseCode code = 2;
+}
+
+message PropagateStateRequest {
+  ClassState classState = 1;
+  repeated int32 vectorClock = 2;
+}
+
+message PropagateStateResponse {
+  int32 id = 1;
+  ResponseCode code = 2;
+}
+
+service ClassServerService {
+  rpc propagateState(PropagateStateRequest) returns (PropagateStateResponse);
+  rpc startGossip(StartGossipRequest) returns (StartGossipResponse);
+}
